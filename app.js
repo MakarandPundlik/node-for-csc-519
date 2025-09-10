@@ -5,11 +5,13 @@ import { open } from "sqlite";
 const app = express();
 
 const main = async () => {
+  // Use relative path so DB is created in project folder
   const db = await open({
     filename: "./mydb.sqlite",
     driver: sqlite3.Database,
   });
 
+  // Create employee table
   await db.exec(`
     CREATE TABLE IF NOT EXISTS employee (
       id INTEGER PRIMARY KEY,
@@ -19,6 +21,7 @@ const main = async () => {
     )
   `);
 
+  // Insert sample records
   const employees = [
     { id: 1, name: "Alice", role: "Engineer", salary: 90000 },
     { id: 2, name: "Bob", role: "Manager", salary: 120000 },
