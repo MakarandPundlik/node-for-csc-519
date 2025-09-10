@@ -42,7 +42,7 @@ const main = async () => {
   app.get("/", async (req, res) => {
     try {
       const rows = await db.all("SELECT * FROM employee");
-      let html = "<h1>Hello CSC-519 World!</h1><h2>Employee Records:</h2><ul>";
+      let html = "<h1>My name is Khan</h1><h2>Employee Records:</h2><ul>";
       rows.forEach((row) => {
         html += `<li>${row.id}: ${row.name}, ${row.role}, $${row.salary}</li>`;
       });
